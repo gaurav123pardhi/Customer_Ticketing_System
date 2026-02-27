@@ -19,7 +19,6 @@ function CreateTicket() {
       return
     }
 
-    // Call async addTicket (wait for 4.5s)
     await addTicket(title, description, user?.email, priority)
     navigate("/dashboard")
   }
@@ -35,7 +34,6 @@ function CreateTicket() {
              position: "relative" // Back button ki position ke liye
            }}>
         
-        {/* Back Arrow Button */}
         {!loading && (
           <button 
             onClick={() => navigate("/dashboard")} 
