@@ -1,24 +1,12 @@
-/**
- * SupportDesk API Utility
- * Yeh file frontend aur backend ke beech ka bridge hai.
- * Future mein jab real backend aayega, tab sirf BASE_URL change karna hoga.
- */
-
-const BASE_URL = "https://api.supportdesk.com/v1"; // Future Backend Endpoint
+const BASE_URL = "https://api.supportdesk.com/v1"; 
 
 export const mockBackendAPI = {
-  /**
-   * 1. Internal Request Wrapper
-   * Sabhi API calls isi function ke through jayengi.
-   */
+
   request: async (endpoint, options = {}) => {
-    // Console mein professional blue color ka log dikhane ke liye
     console.log(`%c[API CALL]: ${options.method || 'GET'} -> ${endpoint}`, "color: #007bff; font-weight: bold; background: #f0f7ff; padding: 2px 5px; border-radius: 3px;");
     
     return new Promise((resolve, reject) => {
-      // Simulate Network Latency (0.8 seconds) taaki loader ka feel aaye
       setTimeout(() => {
-        // 95% Success probability simulation
         const isSuccess = Math.random() > 0.05; 
         
         if (isSuccess) {
@@ -39,9 +27,6 @@ export const mockBackendAPI = {
     });
   },
 
-  /**
-   * 2. Ticket Operations
-   */
   saveTicket: async (ticketData) => {
     return await mockBackendAPI.request(`${BASE_URL}/tickets/create`, {
       method: "POST",
@@ -56,9 +41,6 @@ export const mockBackendAPI = {
     });
   },
 
-  /**
-   * 3. Auth Operations
-   */
   loginUser: async (credentials) => {
     return await mockBackendAPI.request(`${BASE_URL}/auth/login`, {
       method: "POST",
@@ -66,9 +48,6 @@ export const mockBackendAPI = {
     });
   },
 
-  /**
-   * 4. Local Storage Fallback (Data Persistence)
-   */
   getStoredTickets: () => {
     const data = localStorage.getItem("tickets");
     return data ? JSON.parse(data) : [];
