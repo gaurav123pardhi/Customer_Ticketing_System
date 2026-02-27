@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { TicketContext } from "../context/TicketContext"
 import { AuthContext } from "../context/AuthContext"
-import TicketCard from "../components/TicketCard" // Wahi component use karenge
+import TicketCard from "../components/TicketCard" 
 import { useNavigate } from "react-router-dom"
 
 function AdminDashboard() {
@@ -17,7 +17,6 @@ function AdminDashboard() {
 
   return (
     <div className="container mt-4 pb-5">
-      {/* Admin Header */}
       <div className="d-flex justify-content-between align-items-center mb-4 animate-card">
         <div>
           <h2 className="fw-bold mb-0">Admin Control Center <i className="bi bi-shield-lock text-primary"></i></h2>
@@ -28,7 +27,6 @@ function AdminDashboard() {
         </button>
       </div>
 
-      {/* Quick Stats Summary */}
       <div className="row mb-4 g-3 animate-card" style={{animationDelay: '0.1s'}}>
         <div className="col-md-4">
           <div className="card border-0 shadow-sm p-3 bg-dark text-white rounded-4">
@@ -50,7 +48,6 @@ function AdminDashboard() {
         </div>
       </div>
 
-      {/* Filter Control Bar */}
       <div className="card border-0 shadow-sm p-3 mb-4 animate-card bg-light rounded-4" style={{animationDelay: '0.2s'}}>
         <div className="d-flex justify-content-between align-items-center">
           <h6 className="mb-0 fw-bold"><i className="bi bi-funnel me-2"></i>Filter System</h6>
@@ -63,7 +60,6 @@ function AdminDashboard() {
         </div>
       </div>
 
-      {/* Admin Ticket List */}
       <div className="row">
         {filteredTickets.length === 0 ? (
           <div className="text-center py-5">
@@ -76,11 +72,11 @@ function AdminDashboard() {
               <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
                 <div className="row g-0 align-items-center">
                   <div className="col-md-8">
-                    {/* Reuse TicketCard Component but only for UI */}
+
                     <TicketCard ticket={ticket} onClick={() => {}} /> 
                   </div>
                   <div className="col-md-4 p-3 border-start bg-light d-flex gap-2 align-items-center justify-content-end">
-                    {/* Admin Exclusive Controls */}
+
                     <div className="input-group input-group-sm w-auto">
                       <select 
                         className="form-select border-primary-subtle fw-bold"
