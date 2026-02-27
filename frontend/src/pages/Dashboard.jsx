@@ -12,7 +12,6 @@ function Dashboard() {
   const [selectedTicket, setSelectedTicket] = useState(null)
   const navigate = useNavigate()
 
-  // Filter logic for current user
   const myTickets = tickets.filter(t => t.userEmail === user?.email)
 
   const filteredTickets = myTickets.filter(t => {
@@ -23,7 +22,7 @@ function Dashboard() {
 
   return (
     <div className="container mt-4 pb-5">
-      {/* --- SECTION 1: HEADER & STATS --- */}
+
       <div className="d-flex justify-content-between align-items-center mb-4 animate-card">
         <div>
           <h2 className="fw-bold mb-0 text-dark">Hi, {user?.email?.split('@')[0]} 👋</h2>
@@ -55,7 +54,6 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* --- SECTION 2: CONTROLS & TICKETS --- */}
       <div className="row g-3 mb-4 animate-card" style={{animationDelay: '0.2s'}}>
         <div className="col-md-6">
           <div className="input-group shadow-sm rounded-pill overflow-hidden bg-white px-2">
@@ -95,10 +93,9 @@ function Dashboard() {
 
       <hr className="my-5 opacity-25" />
 
-      {/* --- SECTION 3: SCROLLABLE CONTENT (HELP & PROCESS) --- */}
       <div className="extra-content animate-card" style={{animationDelay: '0.4s'}}>
         <div className="row g-4 mt-2">
-          {/* FAQ Accordion */}
+
           <div className="col-md-7">
             <h5 className="fw-bold mb-4">Helpful Information <i className="bi bi-info-circle ms-1"></i></h5>
             <div className="accordion border-0 shadow-sm" id="faqAccordion" style={{borderRadius: '15px', overflow: 'hidden'}}>
@@ -129,7 +126,6 @@ function Dashboard() {
             </div>
           </div>
 
-          {/* Contact Card */}
           <div className="col-md-5">
             <div className="card border-0 bg-primary text-white p-4 shadow h-100" style={{borderRadius: '20px'}}>
               <h6 className="fw-bold mb-3"><i className="bi bi-headset me-2"></i>Dedicated Support</h6>
@@ -142,7 +138,6 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Process Flow */}
         <div className="row mt-5 pt-4 text-center">
            <div className="col-md-4 mb-4">
               <div className="bg-light rounded-circle d-inline-flex p-3 mb-3 text-primary shadow-sm"><i className="bi bi-send fs-4"></i></div>
@@ -162,12 +157,10 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* --- FOOTER --- */}
       <footer className="mt-5 pt-5 text-center text-muted border-top">
         <p className="small mb-0">&copy; 2026 Ticket-Pro Ticketing System. Team Build for Mentor Demo.</p>
       </footer>
 
-      {/* Detail Modal */}
       {selectedTicket && (
         <div className="modal d-block" style={{backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)'}}>
           <div className="modal-dialog modal-dialog-centered">
