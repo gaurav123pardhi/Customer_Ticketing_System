@@ -15,7 +15,6 @@ import Header from "./components/Header";
 function App() {
   const { user } = useContext(AuthContext);
 
-  // Protected Route Logic: Agar user login nahi hai toh Login page par bhej do
   const ProtectedRoute = ({ children }) => {
     if (!user) {
       return <Navigate to="/" />;
@@ -23,7 +22,6 @@ function App() {
     return children;
   };
 
-  // Admin Route Logic: Sirf admin hi access kar sake
   const AdminRoute = ({ children }) => {
     if (!user || user.role !== "admin") {
       return <Navigate to="/dashboard" />;
@@ -33,7 +31,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Header har page par dikhega (Login/Register ko chhod kar handle kiya ja sakta hai Header.jsx ke andar) */}
       <Header />
 
       <main className="py-3">
@@ -42,7 +39,6 @@ function App() {
           <Route path="/" element={user ? <Navigate to={user.role === 'admin' ? "/admin" : "/dashboard"} /> : <Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* User Routes (Protected) */}
           <Route 
             path="/dashboard" 
             element={
@@ -60,7 +56,6 @@ function App() {
             } 
           />
 
-          {/* Admin Routes (Highly Protected) */}
           <Route 
             path="/admin" 
             element={
@@ -70,7 +65,6 @@ function App() {
             } 
           />
 
-          {/* 404 Redirect */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
