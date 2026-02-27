@@ -10,7 +10,6 @@ function Register() {
   const handleRegister = (e) => {
     e.preventDefault()
 
-    // Password matching check
     if (password !== confirmPassword) {
       alert("Passwords do not match!")
       return
@@ -40,8 +39,7 @@ function Register() {
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center" style={{ minHeight: "100vh", background: "#f0f4f8" }}>
       <div className="card p-4 shadow-lg border-0 animate-card" style={{ maxWidth: "420px", width: "100%", borderRadius: "24px" }}>
-        
-        {/* Circular Logo Section */}
+      
         <div className="text-center mb-4">
           <div className="d-inline-flex align-items-center justify-content-center mb-3 logo-pulse" 
             style={{ 
@@ -74,7 +72,6 @@ function Register() {
             </div>
           </div>
 
-          {/* Password field */}
           <div className="mb-3">
             <label className="form-label small fw-bold text-secondary">Password</label>
             <div className="input-group border rounded-3 overflow-hidden">
@@ -90,7 +87,6 @@ function Register() {
             </div>
           </div>
 
-          {/* Confirm Password field */}
           <div className="mb-4">
             <label className="form-label small fw-bold text-secondary">Confirm Password</label>
             <div className="input-group border rounded-3 overflow-hidden">
@@ -113,7 +109,7 @@ function Register() {
 
         <div className="text-center mt-4">
           <p className="small text-muted mb-0">
-            Pehle se account hai? <Link to="/" className="text-primary fw-bold text-decoration-none">Login Karein</Link>
+            Already have an account? <Link to="/" className="text-primary fw-bold text-decoration-none">Login</Link>
           </p>
         </div>
       </div>
