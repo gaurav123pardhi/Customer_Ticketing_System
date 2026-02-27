@@ -1,6 +1,6 @@
 import { createContext, useState } from "react"
 import { useLocalStorage } from "../hooks/useLocalStorage"
-import { mockBackendAPI } from "../utils/api" // api.js import kiya
+import { mockBackendAPI } from "../utils/api" 
 
 export const TicketContext = createContext()
 
@@ -8,7 +8,6 @@ export const TicketProvider = ({ children }) => {
   const [tickets, setTickets] = useLocalStorage("tickets", [])
   const [loading, setLoading] = useState(false)
 
-  // 1. Add Ticket with API Simulation
   const addTicket = async (title, description, userEmail, priority) => {
     setLoading(true)
     
@@ -23,11 +22,8 @@ export const TicketProvider = ({ children }) => {
     }
 
     try {
-      // Professional API Call Simulation
-      // Pehle ye Console mein logs dikhayega phir data save karega
       await mockBackendAPI.saveTicket(newTicket)
       
-      // Delay for User Experience (4.5s jo aapne manga tha)
       await new Promise(resolve => setTimeout(resolve, 3700)) 
 
       setTickets([newTicket, ...tickets])
@@ -40,7 +36,6 @@ export const TicketProvider = ({ children }) => {
     }
   }
 
-  // 2. Update Status with API Simulation
   const updateStatus = async (id, newStatus) => {
     try {
       await mockBackendAPI.updateTicketStatus(id, newStatus)
@@ -53,7 +48,6 @@ export const TicketProvider = ({ children }) => {
     }
   }
 
-  // 3. Delete Ticket
   const deleteTicket = (id) => {
     const updated = tickets.filter(ticket => ticket.id !== id)
     setTickets(updated)
